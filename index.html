@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Météo App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Météo App</h1>
+    </header>
+
+    <div class="search-container">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="insee-input" placeholder="Entrez le code INSEE de la ville">
+        <button onclick="getLocation()" title="Utiliser ma position"><i class="fas fa-location-dot"></i></button>
+      </div>
+      <button class="search-button" onclick="getWeather()">Rechercher</button>
+    </div>
+
+    <div class="weather-card" id="weather-info">
+      <div class="current-weather">
+        <div class="weather-icon">
+          <i class="fas fa-cloud"></i>
+        </div>
+        <div class="weather-details">
+          <h2 class="city">Ville</h2>
+          <p id="weather-description">Chargement...</p>
+          <div class="temperature">
+            <span id="current-temp"></span>
+            <div class="temp-unit">
+              <button onclick="toggleUnit()">°C | °F</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="weather-stats">
+        <div class="stat">
+          <i class="fas fa-temperature-low"></i>
+          <span id="temperature-min"></span>
+        </div>
+        <div class="stat">
+          <i class="fas fa-temperature-high"></i>
+          <span id="temperature-max"></span>
+        </div>
+        <div class="stat">
+          <i class="fas fa-cloud-rain"></i>
+          <span id="probability-rain"></span>
+        </div>
+        <div class="stat">
+          <i class="fas fa-wind"></i>
+          <span id="wind-speed"></span>
+        </div>
+        <div class="stat">
+          <i class="fas fa-droplet"></i>
+          <span id="humidity"></span>
+        </div>
+      </div>
+
+      <div class="forecast-container">
+        <h3>Prévisions sur 5 jours</h3>
+        <div id="forecast" class="forecast"></div>
+      </div>
+    </div>
+
+    <div class="search-history">
+      <h3>Recherches récentes</h3>
+      <ul id="history-list"></ul>
+    </div>
+  </div>
+
+  <script src="meteo.js"></script>
+</body>
+</html>
